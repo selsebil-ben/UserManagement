@@ -3,6 +3,6 @@
   ### Backend
   - Java script
   - MQL for MongoDB
-  ### Backend
+  ### Frontend
   - Bootstrap
   - Java script
