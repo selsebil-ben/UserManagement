@@ -241,7 +241,7 @@
         </li>
 
         <li>
-          <a href="./user/add.html" class="nav-link text-white">
+          <a href="/user/add" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#people-circle" />
             </svg>
@@ -264,7 +264,7 @@
             height="32"
             class="rounded-circle me-2"
           />
-          <strong class="sidebar-text">Ali Hassan</strong>
+          <strong class="sidebar-text"><%= customer.firstName %> <%= customer.lastName %></strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
           <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -285,11 +285,11 @@
         <nav class="px-2 mt-4 d-flex flex-wrap justify-content-between" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Ali Hassan</li>
+            <li class="breadcrumb-item active" aria-current="page"> <%= customer.firstName %> <%= customer.lastName %></li>
           </ol>
 
 
-          <p class="me-md-5"> <span class="fw-medium fs-6">Id :</span> 6487021520bcf1af6319484c</p>
+          <p class="me-md-5"> <span class="fw-medium fs-6">Id :</span> <%= customer._id %></p>
         </nav>
 
 
@@ -303,7 +303,7 @@
           <div class="col-md-6">
             <label for="inputfirstName4" class="form-label">First Name:</label>
             <input
-              placeholder="Ali..."
+              placeholder="<%= customer.firstName %>..."
               type="text"
               class="form-control"
               id="inputfirstName4"
@@ -312,7 +312,7 @@
           <div class="col-md-6">
             <label for="inputlastName4" class="form-label">Last Name:</label>
             <input
-              placeholder="Hassan..."
+              placeholder="<%= customer.lastName %>..."
               type="text"
               class="form-control"
               id="inputlastName4"
@@ -322,7 +322,7 @@
           <div class="col-md-6">
             <label for="inputemail4" class="form-label">Email:</label>
             <input
-              placeholder="ali@gmail.com"
+              placeholder="<%= customer.email %>"
               type="email"
               class="form-control"
               id="inputemail4"
@@ -331,7 +331,7 @@
           <div class="col-md-6">
             <label for="inputtele4" class="form-label">Telephone:</label>
             <input
-              placeholder="011987899"
+              placeholder="<%= customer.phoneNumber %>"
               type="number"
               class="form-control"
               id="inputtele4"
@@ -342,7 +342,7 @@
             <div class="col-md-6">
               <label for="inputage4" class="form-label">Age:</label>
               <input
-                placeholder="Your Age: ..."
+                placeholder="Age:<%= customer.age %>"
                 type="number"
                 class="form-control"
                 id="inputage4"

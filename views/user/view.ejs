@@ -241,7 +241,7 @@
           </li>
 
           <li>
-            <a href="./user/add.html" class="nav-link text-white">
+            <a href="/user/add" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#people-circle" />
               </svg>
@@ -341,12 +341,12 @@
 
             <tr>
               <th scope="row">Created on</th>
-              <td>Test6</td>
+              <td><%= moment(customer.createdAt).fromNow(); %></td>
             </tr>
 
             <tr>
               <th scope="row">Last Update</th>
-              <td>Test7</td>
+              <td><%= moment(customer.updatedAt).fromNow(); %></td>
             </tr>
           </tbody>
         </table>

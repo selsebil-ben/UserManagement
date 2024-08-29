@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // define the schema
-const customerSchema = new Schema ({
-
-firstName: String,
+const customerSchema = new Schema (
+{firstName: String,
 lastName: String,
 email: String,
 phoneNumber: String,
 age: Number,
 country: String,
 gender: String
-})
+},
+{timestamps : true}
+)
 
 
 // compile the schema as a model

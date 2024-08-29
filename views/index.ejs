@@ -240,7 +240,7 @@
           </li>
 
           <li>
-            <a href="./user/add.html" class="nav-link text-white">
+            <a href="/user/add" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#people-circle" />
               </svg>
@@ -303,14 +303,14 @@
               <td> <%= record.gender %> </td>
               <td> <%= record.country %></td>
               <td> <%= record.age %></td>
-              <td>Updated 1 days ago </td>
+              <td> <%= moment(record.updatedAt).fromNow(); %>  </td>
               <td>
                 <a
                   data-bs-toggle="tooltip"
                   data-bs-title="View details"
                   data-bs-placement="top"
                   class="btn btn-primary btn-sm"
-                  href="./user/<%= record._id %>"
+                  href="/view/<%= record._id %>"
                   ><i class="bi bi-eye"></i></a>
 
 
@@ -319,8 +319,8 @@
                   data-bs-title="Edit user"
                   data-bs-placement="top"
                   class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
+                  href="/edit/<%= record._id %>">
+                
                   <i class="bi bi-pencil"></i>
                 </a>
                 <button
@@ -329,6 +329,8 @@
                   data-bs-placement="top"
                   class="btn btn-danger btn-sm"
                 >
+                
+                
                   <i class="bi bi-trash"></i>
                 </button>
               </td>
