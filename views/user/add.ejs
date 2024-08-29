@@ -258,7 +258,7 @@
           aria-expanded="false"
         >
           <img
-            src="./img/me.JPG"
+            src="../img/me.JPG"
             alt=""
             width="32"
             height="32"
@@ -279,32 +279,13 @@
       <div class="b-example-divider b-example-vr"></div>
 
       <section class="w-100">
-        <nav class="navbar bg-body-tertiary">
-          <div
-            class="container-fluid justify-content-center justify-content-md-between"
-          >
-            <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
-              >Course <sup>4</sup> arab</a
-            >
+        <%- include('../components/navBar') %>
 
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </nav>
-
-        <form class="mx-0 row gx-3 gy-4 mt-3">
+        <form method="post" action="/user/add.html" class="mx-0 row gx-3 gy-4 mt-3">
           <div class="col-md-6">
             <label for="inputfirstName4" class="form-label">First Name:</label>
             <input
+            name="firstName"
               placeholder="Ali..."
               type="text"
               class="form-control"
@@ -313,7 +294,7 @@
           </div>
           <div class="col-md-6">
             <label for="inputlastName4" class="form-label">Last Name:</label>
-            <input
+            <input name="lastName"
               placeholder="Hassan..."
               type="text"
               class="form-control"
@@ -323,7 +304,7 @@
 
           <div class="col-md-6">
             <label for="inputemail4" class="form-label">Email:</label>
-            <input
+            <input name="email"
               placeholder="ali@gmail.com"
               type="email"
               class="form-control"
@@ -332,7 +313,7 @@
           </div>
           <div class="col-md-6">
             <label for="inputtele4" class="form-label">Telephone:</label>
-            <input
+            <input name="phoneNumber"
               placeholder="011987899"
               type="number"
               class="form-control"
@@ -343,7 +324,7 @@
           <div>
             <div class="col-md-6">
               <label for="inputage4" class="form-label">Age:</label>
-              <input
+              <input name="age"
                 placeholder="Your Age: ..."
                 type="number"
                 class="form-control"
@@ -355,7 +336,7 @@
           <div>
             <div class="col-md-6">
               <label for="inputCountry" class="form-label">Country:</label>
-              <select id="inputCountry" class="form-select">
+              <select name="country" id="inputCountry" class="form-select">
                 <option selected hidden disabled>Choose here ...</option>
 
                 <option>Morocco</option>
@@ -367,7 +348,7 @@
           <div>
             <div class="col-md-6">
               <label for="inputGender" class="form-label">Gender:</label>
-              <select id="inputGender" class="form-select">
+              <select  name="gender" id="inputGender" class="form-select">
                 <option selected hidden disabled>Choose here ...</option>
                 <option>Male</option>
                 <option>Female</option>

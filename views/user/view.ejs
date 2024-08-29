@@ -258,7 +258,7 @@
             aria-expanded="false"
           >
             <img
-              src="./img/me.JPG"
+              src="../img/me.JPG"
               alt=""
               width="32"
               height="32"
@@ -279,27 +279,7 @@
       <div class="b-example-divider b-example-vr"></div>
 
       <section class="w-100">
-        <nav class="navbar bg-body-tertiary">
-          <div
-            class="container-fluid justify-content-center justify-content-md-between"
-          >
-            <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
-              >Course <sup>4</sup> arab</a
-            >
-
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </nav>
+        <%- include('../components/navBar') %>
 
         <nav
           style="width: 88%"
@@ -309,12 +289,12 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-              Ali Hassan
+              <%= customer.firstName %> <%= customer.lastName %>
             </li>
           </ol>
 
           <p class=" ">
-            <span class="fw-medium fs-6">Id :</span> 6487021520bcf1af6319484c
+            <span class="fw-medium fs-6">Id :</span> <%= customer._id %>
           </p>
         </nav>
 
@@ -325,38 +305,38 @@
           <thead>
             <tr>
               <th scope="col">First Name</th>
-              <th class="fw-normal" scope="col">Ali</th>
+              <th class="fw-normal" scope="col"><%= customer.firstName %></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Last Name</th>
-              <td>Hassan</td>
+              <td><%= customer.lastName %></td>
             </tr>
 
             <tr>
               <th scope="row">Telephone</th>
-              <td>Test1</td>
+              <td><%= customer.phoneNumber %> </td>
             </tr>
 
             <tr>
               <th scope="row">Email</th>
-              <td>ali7assan@gmail.com</td>
+              <td><%= customer.email %></td>
             </tr>
 
             <tr>
               <th scope="row">Gender</th>
-              <td>Test3</td>
+              <td><%= customer.gender %></td>
             </tr>
 
             <tr>
               <th scope="row">Age</th>
-              <td>Test4</td>
+              <td><%= customer.age %></td>
             </tr>
 
             <tr>
               <th scope="row">Country</th>
-              <td>Test5</td>
+              <td><%= customer.country %></td>
             </tr>
 
             <tr>

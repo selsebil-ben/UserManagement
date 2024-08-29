@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const User = require('./models/user');
+const Customer = require('./models/customer');
 const app = express();
 const port = 3001;
 const dbString = process.env.DATABASE_URL;
@@ -37,27 +37,56 @@ mongoose.connect(dbString)
 
 //-----------------Get API 1 ---------------
 app.get('/', (req, res) => {
-res.render("index", {title: "Home page"})
+Customer.find()
+.then( (result) => {res.render("index", {customers: result})
+  
+})
+.catch((err) => {console.log(err)
+  
+})
 })
 
 //-----------------Get API 2 ---------------
+app.get('/user/add.html', (req, res) => {
+  
+   res.render("user/add", {})})
+ 
+//-----------------Get API 3 ---------------
+app.get('/user/view.html', (req, res) => {
+  
+  res.render("user/view", {})})
+  
+  
+//----------------- Get API 4---------------
+app.get("/user/edit.html", (req, res) => {
+  res.render("user/edit", {})})
+//----------------- Get API 5 --------------
 app.get('/success', (req, res) => {
   
-  User.find()
-  .then( (result) => { res.render("index", {title: "Confirmation page", uname : result})})
-  .catch( (err) => { console.log(err)})
-    
-})
-//----------------- POST API---------------
-app.post("/adduser", (req, res) => {
-  console.log(req.body);
-  const name = new User(req.body);
-  name.save()
-  .then( () => { res.redirect("/success") })
-  .catch( (er) => {console.log(er)});
-   
+    Customer.find()
+    .then( (result) => { res.render("user/addconf", {title : "Confirmation", cname : result})})
+    .catch( (err) => { console.log(err)})
+      
+  })
+
+//----------------- POST API--------------
+app.post("/user/add.html", (req, res) => {
+ 
+ const cust = new Customer(req.body);
+ cust.save()
+ .then( () => { res.redirect("/success")})
+ .catch( (er) => {console.log(er)});
 })
 
+app.get("/user/:id", (req, res) => {
+  Customer.findById(req.params.id).then((result)=>{res.render("user/view", {customer : result})})
+  .catch( (err) => {console.log(err)})
+
+})
+
+
+//res.render("user/view", {customer : result}) 66cf3007f2182609d5991c21
+console.log("hello")
 
 
 app.listen(port, () => {
