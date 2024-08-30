@@ -4,14 +4,15 @@
     >
       <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0">Customers Dashboard</a>
 
-      <form class="d-flex" role="search">
+      <form  action="/search" method="post" class="d-flex" role="search">
         <input
+          name="keyword"
           class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success" type="submit">
+        <button  class="btn btn-outline-success" type="submit">
           Search
         </button>
       </form>

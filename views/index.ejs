@@ -6,7 +6,7 @@
       rel="stylesheet"
       href="./bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
     />
-    <link rel="shortcut icon" href="./img/ali.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/customer.png" type="image/x-icon">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -263,7 +263,7 @@
               height="32"
               class="rounded-circle me-2"
             />
-            <strong class="sidebar-text">Ali Hassan</strong>
+            <strong class="sidebar-text">Selsebil BEN</strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -279,74 +279,94 @@
 
       <section class="w-100">
         <%- include('./components/navBar.ejs') %>
-
-        <table
-          style="width: 99%"
-          class="text-center mx-auto table mt-5 table-striped table-bordered"
-        >
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Full Name</th>
-              <th scope="col">Gender</th>
-              <th scope="col">Country</th>
-              <th scope="col">Age</th>
-              <th scope="col">Last updated</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% customers.forEach((record, index )=> 
-            { %> <tr>
-              <th scope="row"><%=index+1  %></th>
-              <td> <%=record.firstName  %>	<%=record.lastName %> </td> 
-              <td> <%= record.gender %> </td>
-              <td> <%= record.country %></td>
-              <td> <%= record.age %></td>
-              <td> <%= moment(record.updatedAt).fromNow(); %>  </td>
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="/view/<%= record._id %>"
-                  ><i class="bi bi-eye"></i></a>
-
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="/edit/<%= record._id %>">
+        
+          <% if (customers.length === 0) { %>
+            <style>
+              .warning-message {
+                  background-color: rgba(232, 148, 31, 0.7); /* Orange background with transparency */
+                  color: white; /* Text color */
+                  padding: 15px;
+                  border-radius: 5px;
+                  text-align: center;
+                  font-weight: bold;
+                  font-size: 18px;
+                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+              }
+          </style>
+     
+            <br>
+            <h4 class="warning-message"> Oops, You do not have any customer yet :'( </h4>
+            <% } else { %>
+             
+              <table
+              style="width: 99%"
+              class="text-center mx-auto table mt-5 table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Last updated</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% customers.forEach((record, index )=> 
+                { %> <tr>
+                  <th scope="row"><%=index+1  %></th>
+                  <td> <%=record.firstName  %>	<%=record.lastName %> </td> 
+                  <td> <%= record.gender %> </td>
+                  <td> <%= record.country %></td>
+                  <td> <%= record.age %></td>
+                  <td> <%= moment(record.updatedAt).fromNow(); %>  </td>
+                  <td>
+                    <a
+                      data-bs-toggle="tooltip"
+                      data-bs-title="View details"
+                      data-bs-placement="top"
+                      class="btn btn-primary btn-sm"
+                      href="/view/<%= record._id %>"
+                      ><i class="bi bi-eye"></i></a>
+    
+    
+                    <a
+                      data-bs-toggle="tooltip"
+                      data-bs-title="Edit user"
+                      data-bs-placement="top"
+                      class="btn btn-primary btn-sm"
+                      href="/edit/<%= record._id %>">
+                    
+                      <i class="bi bi-pencil"></i>
+                    </a>
+                    <form action="/delete/<%= record._id %>?_method=DELETE" method="post" style="display: inline;">
+                    <button
+                      data-bs-toggle="tooltip"
+                      data-bs-title="Delete user"
+                      data-bs-placement="top"
+                      class="btn btn-danger btn-sm">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </form>
+                  </td>
+                </tr> <% }) 
                 
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
+                %>
                 
                 
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr> <% }) 
-            
-            %>
-            
-            
-      
           
-      
-      
-      
-      
-          </tbody>
-        </table>
+              
+          
+          
+          
+          
+              </tbody>
+              </table>
+          <% } %>
+        
+        
       </section>
     </main>
     <script src="./js/bootstrap.bundle.min.js"></script>

@@ -279,27 +279,7 @@
       <div class="b-example-divider b-example-vr"></div>
 
       <section class="w-100">
-        <nav class="navbar bg-body-tertiary">
-          <div
-            class="container-fluid justify-content-center justify-content-md-between"
-          >
-            <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
-              >Course <sup>4</sup> arab</a
-            >
-
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </nav>
+        <%- include('../components/navBar.ejs') %>
 
         <table
           style="width: 99%"
@@ -316,41 +296,46 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>test1</td>
-              <td>test2</td>
-              <td>@test3</td>
+            <% customers.forEach((record, index )=> { %>
 
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="/view"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="/edit"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
+              <tr>
+                <th scope="row"><%=index+1  %></th>
+                <td><%=record.firstName  %>	<%=record.lastName %> </td>
+                <td><%= record.gender %></td>
+                <td><%= record.country %></td>
+  
+                <td>
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-title="View details"
+                    data-bs-placement="top"
+                    class="btn btn-primary btn-sm"
+                    href="/view/<%= record._id %>"
+                    ><i class="bi bi-eye"></i
+                  ></a>
+  
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Edit user"
+                    data-bs-placement="top"
+                    class="btn btn-primary btn-sm"
+                    href="/edit/<%= record._id %>"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <form action="/delete/<%= record._id %>?_method=DELETE" method="post" style="display: inline;">
+                    <button
+                      data-bs-toggle="tooltip"
+                      data-bs-title="Delete user"
+                      data-bs-placement="top"
+                      class="btn btn-danger btn-sm"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </form>
+                </td>
+              </tr> <% }) %>
+            
           </tbody>
         </table>
       </section>
