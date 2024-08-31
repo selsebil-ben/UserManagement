@@ -4,8 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 //const allRoutes = require('./routes/allRoutes');
 const app = express();
-const port = process.env.PORT || 3001;
 require('dotenv').config(); // using .env
+const port = process.env.PORT || 3001;
 const dbString = process.env.DATABASE_URL;
 
 const bodyParser = require('body-parser');
