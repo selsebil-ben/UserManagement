@@ -1,5 +1,5 @@
-#git bash path : cd /c/Users/Selsebil/Desktop/my-github/UserManagement
-
+#git bash path : 
+cd /c/Users/Selsebil/Desktop/my-github/UserManagement
 
 # Ignore the .env file
 .env
