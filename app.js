@@ -101,10 +101,10 @@ app.get("/view/:id", (req, res) => {
     
     //----------------- POST API  1 --------------
 app.post("/user/add", (req, res) => {
-    console.log(req.body)
-     const cust = new Customer(req.body);
+    
+     const cust = new Customer(req.body);// u can use cust.save() res.redirect("/success")
      Customer.create(req.body) // DO NOT USE Customer.insertOne(req.body); A Mongoose model doesn't have an insertOne method. Use the create method instead:
-     .then( () => { res.redirect("/success")})
+     .then( () => { })
      .catch( (er) => {console.log(er)}); 
     })
     
