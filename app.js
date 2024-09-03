@@ -19,7 +19,7 @@ const moment = require('moment'); // for adding timestamps in my DB schema
 
 const methodOverride = require('method-override') // For delete function
 
-//app.use(allRoutes);
+
 app.use(express.urlencoded({extended : true}));
 
 app.use(express.json());
@@ -142,3 +142,5 @@ app.listen(port, () => {
  
 console.log("We are up and running, captain ! ")
 console.log(`http://localhost:${port}/`) });
+
+//app.use(allRoutes);
