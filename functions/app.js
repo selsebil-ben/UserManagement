@@ -1,8 +1,10 @@
 
 
 const express = require('express');
+const serverless = require('serverless-http');
+const router = express.Router();
 const mongoose = require('mongoose');
-//const allRoutes = require('./routes/allRoutes');
+// const allRoutes = require('../routes/allRoutes');
 const app = express();
 require('dotenv').config(); // using .env
 const port = process.env.PORT || 3001;
@@ -10,7 +12,7 @@ const dbString = process.env.DATABASE_URL;
 
 const bodyParser = require('body-parser');
 
-const Customer = require('./models/customer');
+const Customer = require('../models/customer');
 const moment = require('moment'); // for adding timestamps in my DB schema
 
 
@@ -144,3 +146,5 @@ console.log("We are up and running, captain ! ")
 console.log(`http://localhost:${port}/`) });
 
 //app.use(allRoutes);
+// app.use('/.netlify/functions/api', router); 
+// module.exports.handler = serverless(app); run w 
