@@ -124,7 +124,7 @@ router.post('/search', (req, res) => {
         
 //----------------- Update API--------------
 router.put("/update/:id", (req, res) => {
-     console.log(req.body)
+     
     Customer.updateOne({_id : req.params.id}, req.body).then(()=>{console.log("updated") ; res.redirect('/')})
     .catch( (err) => {console.log(err)})})
   
