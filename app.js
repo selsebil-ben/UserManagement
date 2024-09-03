@@ -1,7 +1,7 @@
 
 
 const express = require('express');
-const serverless = require('serverless-http');
+
 const router = express.Router();
 const mongoose = require('mongoose');
 // const allRoutes = require('../routes/allRoutes');
@@ -12,7 +12,7 @@ const dbString = process.env.DATABASE_URL;
 
 const bodyParser = require('body-parser');
 
-const Customer = require('../models/customer');
+const Customer = require('./models/customer');
 const moment = require('moment'); // for adding timestamps in my DB schema
 
 
@@ -139,7 +139,7 @@ router.delete("/delete/:id", (req, res) => {
     .then(()=>{res.redirect('/')})
     .catch( (err) => {console.log(err)}) })
 
-app.use( basePath,router); 
+app.use(router); 
 
 app.listen(port, () => {
  
@@ -148,5 +148,3 @@ console.log(`http://localhost:${port}/`) });
 
 //app.use(allRoutes);
 
-// Export the serverless handler for Netlify
-module.exports.handler = serverless(app); 
