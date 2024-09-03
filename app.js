@@ -146,5 +146,5 @@ app.listen(port, () => {
 console.log("We are up and running, captain ! ")
 console.log(`http://localhost:${port}/`) });
 
-//app.use(allRoutes);
+// app.use(allRoutes);
 
