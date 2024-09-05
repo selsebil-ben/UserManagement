@@ -17,5 +17,5 @@ Then, run the development server:
 or
 - yarn dev
 # or
-## or Open this link with your browser to see the result :
+## Open this link with your browser to see the result :
 https://usermanagement-fshd.onrender.com
