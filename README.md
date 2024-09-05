@@ -8,13 +8,14 @@
   - Java script
 # Run the project locally
 First, install all teh packages :
-npm install
-# or
-yarn install
+- npm install
+ or
+- yarn install
 
 Then, run the development server:
-npm run dev
+- npm run dev
+or
+- yarn dev
 # or
-yarn dev
 ## or Open this link with your browser to see the result :
 https://usermanagement-fshd.onrender.com
